@@ -1,92 +1,31 @@
+import { useState } from 'react';
 import './App.css';
-import ChampionCard from './components/ChampionCard';
-
-
-const championsList = [
-  {
-    "id": 1,
-    "year": 2023,
-    "driver": "Max Verstappen",
-    "team": "Red Bull Racing",
-    "imageUrl": "./src/assets/rb-racing.png"
-  },
-  {
-    "id": 2,
-    "year": 2022,
-    "driver": "Max Verstappen",
-    "team": "Red Bull Racing",
-    "imageUrl": "./src/assets/rb-racing.png"
-  },
-  {
-    "id": 3,
-    "year": 2021,
-    "driver": "Max Verstappen",
-    "team": "Red Bull Racing",
-    "imageUrl": "./src/assets/rb-racing.png"
-  },
-  {
-    "id": 4,
-    "year": 2020,
-    "driver": "Lewis Hamilton",
-    "team": "Mercedes",
-    "imageUrl": "./src/assets/mercedes.png"
-  },
-  {
-    "id": 5,
-    "year": 2019,
-    "driver": "Lewis Hamilton",
-    "team": "Mercedes",
-    "imageUrl": "./src/assets/mercedes.png"
-  },
-  {
-    "id": 6,
-    "year": 2018,
-    "driver": "Lewis Hamilton",
-    "team": "Mercedes",
-    "imageUrl": "./src/assets/mercedes.png"
-  },
-  {
-    "id": 7,
-    "year": 2017,
-    "driver": "Lewis Hamilton",
-    "team": "Mercedes",
-    "imageUrl": "./src/assets/mercedes.png"
-  },
-  {
-    "id": 8,
-    "year": 2016,
-    "driver": "Nico Rosberg",
-    "team": "Mercedes",
-    "imageUrl": "./src/assets/mercedes.png"
-  },
-  {
-    "id": 9,
-    "year": 2015,
-    "driver": "Lewis Hamilton",
-    "team": "Mercedes",
-    "imageUrl": "./src/assets/mercedes.png"
-  },
-  {
-    "id": 10,
-    "year": 2014,
-    "driver": "Lewis Hamilton",
-    "team": "Mercedes",
-    "imageUrl": "./src/assets/mercedes.png"
-  },
-  {
-    "id": 11,
-    "year": 2013,
-    "driver": "Sebastian Vettel",
-    "team": "Red Bull Racing",
-    "imageUrl": "./src/assets/rb-racing.png"
-  },
-]
+import HomePage from './components/HomePage';
+import { CHAMPIONS_LIST } from './CHAMPIONS_LIST';
+import RandomTeam from './components/RandomTeam';
+import { Link, Route, Routes } from 'react-router-dom';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
 function App() {
+  const [championsList, setChampionsList] = useState(CHAMPIONS_LIST)
+
   return (
     <div className="App">
-      <h1>Formula 1 Champions</h1>
-      { championsList.map(c => <ChampionCard champion={c}/> )}
+      <Navbar bg="dark" data-bs-theme="dark">
+        <Container>
+          <Navbar.Brand as={Link} to='/'>Formula One</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to='/'>Home</Nav.Link>
+            <Nav.Link as={Link} to='/randomTeam'>Random Team</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+      <Container>
+        <Routes>
+          <Route path='/' element={<HomePage championsList={championsList} />} />
+          <Route path='/randomTeam' element={<RandomTeam RandomTeam={RandomTeam} />} />
+        </Routes>
+      </Container>
     </div>
   );
 }

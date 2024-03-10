@@ -1,10 +1,10 @@
-const Champions = [
+export const CHAMPIONS_LIST = [
   {
     "id": 1,
     "year": 2023,
     "driver": "Max Verstappen",
     "team": "Red Bull Racing",
-    "imageUrl": "/src/assets/re-racing.png"
+    "imageUrl": "./src/assets/rb-racing.png"
   },
   {
     "id": 2,
