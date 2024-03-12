@@ -1,11 +1,12 @@
 import React from 'react'
+import {CardImg} from 'reactstrap'
 
-export default function ChampionCard(props) {
+export default function ChampionCard({champion}) {
   return (
     <div className='bg-light border p-4 m-2'>
-        <h4>{props.champion.team}</h4>
-        <p>{props.champion.driver}</p>
-        <p>{props.champion.year}</p>
+        <h4>{champion.team}</h4>
+        <p>{champion.driver}</p>
+        <p>{champion.year}</p>
       </div>
   )
 }

@@ -8,8 +8,8 @@ const RandomTeamPicker = () => {
     };
   
     return (
-      <div>
-        <h2>Your Team for this weekend!:</h2>
+      <div className='m-4'>
+        <h2>Your Team for this weekend!</h2>
         <p className="display-6 text-danger fw-bold">{pickRandomTeam()}</p>
       </div>
     );
