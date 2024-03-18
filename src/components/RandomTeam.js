@@ -10,6 +10,7 @@ const RandomTeamPicker = () => {
     return (
       <div className='m-4'>
         <h2>Your Team for this weekend!</h2>
+        <p>Hint: Refresh the page if you'd prefer another</p>
         <p className="display-6 text-danger fw-bold">{randomTeam.team_name}</p>
         <Image src={randomTeam.image} fluid />
       </div>
