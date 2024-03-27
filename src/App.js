@@ -5,7 +5,9 @@ import { CHAMPIONS_LIST } from './CHAMPIONS_LIST';
 import RandomTeam from './components/RandomTeam';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-
+import BannerImage from './components/BannerImage';
+import background from './assets/starting_line.jpg'
+import HomeBio from './components/HomeBio';
 function App() {
   const [championsList, setChampionsList] = useState(CHAMPIONS_LIST)
 
@@ -20,6 +22,8 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
+      <BannerImage />
+      <HomeBio />
       <Container>
         <Routes>
           <Route path='/' element={<HomePage championsList={championsList} />} />
